@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            About | 
+        
+        Shark&#39;s safe house
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="null">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.en.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Shark&#39;s safe house">
+    <meta name="msapplication-starturl" content="/about/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Shark&#39;s safe house">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="/about/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="About | Shark&#39;s safe house">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="">
+    
+
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="/about/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                About
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Sharknevercries</strong>
+        <span>7月 28, 2014</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=About&url=/about/index.html&pic=/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=About&url=/about/index.html&via=Sharknevercries" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=/about/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=/about/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="關於我"><a href="# 關於我" class="headerlink" title="關於我"></a>關於我</h1><p><img src="/assets/images/realAuthor.jpg" alt=""></p>
+<p>本名：李政遠 <br>Github：Sharknevercries<br> 就讀：成功國小、鷺江國中、成功高中、中央大學 <br> 暱稱：Shark、Sharknevercries、GalMaster、Wifi<br>喜歡的人事物：馬尾、動漫、輕小說、GalGame、為特定目標認真努力的人、寫程式 <br> 討厭的人事物：沒競爭力的人(包含自己)、拾人牙慧、蟑螂</p>
+<p><a href="https://sharknevercries.github.io/life/" target="_blank" rel="noopener">生活線</a></p>
+<h1 id="關於部落格"><a href="# 關於部落格" class="headerlink" title="關於部落格"></a>關於部落格 </h1><p> 目前成為大學生了，回想起高中的生活，發現難以回想所有的種種，當然印象深刻的事物仍烙印在腦中，但忘卻的瑣事卻是我一路走來的痕跡，這樣子記憶就有了大斷層了，所以我在 <strong>Gitgub page</strong> 架了這個部落格，來記錄我現在起的經歷，希望記錄一些東西，讓自己以後有機會省私自己。之後會陸陸續續分享其他更多我的環境與其他想法。</p>
+<h1 id="家庭"><a href="# 家庭" class="headerlink" title="家庭"></a>家庭 </h1><p> 我是家中第二子，上有一個哥哥，下有一個妹妹，我與哥哥比較親暱，因為到高中為止每天都睡同一張床上(雙人床)，而且是共用一個房間，所以常常聊東聊西。我開始學習程式語言也是因為哥哥買了第一本教學書，那是約莫國中二、三年級的時候吧，只能說那影響力不淺，再加上當時對於電腦遊戲有些憧憬，所以就正式在國中暑假一頭栽進去學習程式。</p>
+<p>家中，父親是威權式但又不是很管的人，母親就很管，但是溫柔。父母對於我沒有嚴厲的要求，但是自己知道學習資訊相關的同時，學校的課業也不能荒廢。</p>
+<h1 id="求學過程"><a href="# 求學過程" class="headerlink" title="求學過程"></a>求學過程 </h1><p> 自國中時就會預習課本，作業也都會在當天的放學後留校寫完，然後回到家的第一件事是開電腦…，打開線上遊戲，開始玩…，應該大多數人都差不多是這樣吧，直到國中二年級，家兄買了第一本程式設計 C++ 的書，才開始對於玩遊戲感到疲憊，而且有基測的無奈，確實想要一些新的玩意來做個心靈寄託，於是閒時會拿起 C++ 讀，同時自我訓練書本後附的上機程式習題。</p>
+<p>國中基測一結束，我就開始學習 <strong>C++</strong> 的基礎語法、簡單資料結構和演算法，並且靠著老哥留下來的筆記和新買的書：<strong>C 名題百則</strong>，慢慢學習程式人的思維，並且栽進去<strong>ACM 程式競賽</strong>。</p>
+<p>高中時期，很有重要的一件事就是選社團！當下我的第一志願是 <strong> 電腦研習社 </strong>，可是沒有中選，導致高一的我沒有其他門路而仍然只能自學，加上當時的我實力基底並不是很堅實，我也沒勇氣報名<strong> 校內資訊競賽 </strong> 的勇氣去認識同校的其他競賽選手。這個時期，我回到家的第一件事是開電腦，打開 <strong>Zero judge</strong> 寫題目，有時候在通勤學校時、考試時也在想題目。之後高二那年代表學校參加台北市資訊學科能力競賽奪得一等獎、全國資訊學科能力競賽三等獎，並在此之前認識了同校電腦研習社的人，彼此提攜共進，參與程式團體賽；高三再次代表學校參加台北市資訊學科能力競賽獲選入選獎。回過神來，高中時期也自我砥礪良多。但是之後為了準備學測、指考，漸漸地沒有再寫競賽程式。</p>
+<p>沉寂了一年擺脫了高中學科考試，以指考之姿進入中央大學資訊工程學系。大一時進入學校計算機網路中心網路系統組擔任工讀生，並接觸許多非 ACM 程式競賽，包含 Linux 作業系統、網頁語言、C# 視窗設計等等；大二找到幾名志同道合的小夥伴一同參與 ACM-ICPC 亞洲台灣地區競賽，大三開始接手計算機網路中心網路系統組中的部分工作業務下的專案並成為負責人。並在學校課程中陸續完成許多課堂個人、團體作品。</p>
+<p>在自己動手做努力找出問題、分析問題，並找到關鍵字吸納相關知識；作為專案的負責人，明白自己的職責，並交接事務；作為一名隊伍的隊長，統籌號召隊員向一致目標前進。期間的種種，除了自己收穫良多，也明白人與人溝通的方法。</p>
+<h1 id="經歷"><a href="# 經歷" class="headerlink" title="經歷"></a>經歷</h1><table>
+<thead>
+<tr>
+<th>項目</th>
+<th style="text-align:center">內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>大學</strong></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td>國立中央大學電算中心網路系統組(2014~2017)</td>
+<td style="text-align:center">工讀生</td>
+</tr>
+<tr>
+<td>2016 年國立中央大學全校短期資訊推廣課程</td>
+<td style="text-align:center">講師</td>
+</tr>
+<tr>
+<td>2015 年國立中央大學全校短期資訊推廣課程</td>
+<td style="text-align:center">講師</td>
+</tr>
+<tr>
+<td>2014 年國立中央大學全校短期資訊推廣課程</td>
+<td style="text-align:center">講師</td>
+</tr>
+<tr>
+<td>梅竹黑客松(2014)</td>
+<td style="text-align:center">人氣獎、大會獎</td>
+</tr>
+<tr>
+<td>2016 年全國大專 ITSA 盃程式設計桂冠挑戰大賽</td>
+<td style="text-align:center">佳作</td>
+</tr>
+<tr>
+<td>2016 年 ACM-ICPC 亞洲台灣中壢區</td>
+<td style="text-align:center">第 27 名 -6 題</td>
+</tr>
+<tr>
+<td>2015 年 ACM-ICPC 亞洲台灣台北區</td>
+<td style="text-align:center">第 27 名 -5 題</td>
+</tr>
+<tr>
+<td>2014 年 ACM-ICPC 亞洲台灣台中區</td>
+<td style="text-align:center">第 37 名 -3 題</td>
+</tr>
+<tr>
+<td>2016 年 NCPC</td>
+<td style="text-align:center">佳作</td>
+</tr>
+<tr>
+<td>2015 年 NCPC</td>
+<td style="text-align:center">佳作</td>
+</tr>
+<tr>
+<td>2014 年 NCPC</td>
+<td style="text-align:center">佳作</td>
+</tr>
+<tr>
+<td>CPE(2014/05/27)</td>
+<td style="text-align:center">6 題(A+)</td>
+</tr>
+<tr>
+<td>CPE(2014/03/25)</td>
+<td style="text-align:center">5 題(A)</td>
+</tr>
+<tr>
+<td>CPE(2013/12/17)</td>
+<td style="text-align:center">5 題(A)</td>
+</tr>
+<tr>
+<td><strong>高中</strong></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td>2012 年 NPSC</td>
+<td style="text-align:center">入圍決賽</td>
+</tr>
+<tr>
+<td>2011 年 NPSC</td>
+<td style="text-align:center">入圍決賽</td>
+</tr>
+<tr>
+<td>101 年台北市資訊學科能力競賽</td>
+<td style="text-align:center">入選獎</td>
+</tr>
+<tr>
+<td>100 年全國資訊學科能力競賽</td>
+<td style="text-align:center">三等獎</td>
+</tr>
+<tr>
+<td>100 年台北市資訊學科能力競賽</td>
+<td style="text-align:center">一等獎</td>
+</tr>
+<tr>
+<td><strong>未分類</strong></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td>CodeForce</td>
+<td style="text-align:center">最高積分 <strong>1871</strong></td>
+</tr>
+<tr>
+<td>UVA Online Judge</td>
+<td style="text-align:center">解題總計 <strong>600+</strong> 題</td>
+</tr>
+<tr>
+<td>ZeroJudge</td>
+<td style="text-align:center">解題總計 <strong>450+</strong> 題</td>
+</tr>
+</tbody>
+</table>
+<h3 id="上一次更新時間：2017-3-21"><a href="# 上一次更新時間：2017-3-21" class="headerlink" title="上一次更新時間：2017/3/21"></a>上一次更新時間：2017/3/21</h3>
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="Sharknevercries's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        sharknevercries@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                首頁
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    過往
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archive/2018/03/">三月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archive/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archive/2016/10/">十月 2016<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/about" title="About">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                About
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/note" title="Note">
+                
+                    <i class="material-icons sidebar-material-icons">note</i>
+                
+                Note
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主題 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/Sharknevercries" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Shark's safe house
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+        </body>
+    
+</html>

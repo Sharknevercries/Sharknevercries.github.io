@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            2584-AI | 
+        
+        Shark&#39;s safe house
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="null,TCG">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.en.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?ezyEvm8ST5CGfpA+kFFi1g==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Shark&#39;s safe house">
+    <meta name="msapplication-starturl" content="/2018/01/23/2584-AI/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Shark&#39;s safe house">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="/2018/01/23/2584-AI/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="2584-AI | Shark&#39;s safe house">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="">
+    <meta property="og:article:tag" content="TCG"> 
+
+    
+        <meta property="article:published_time" content="Tue Jan 23 2018 21:26:29 GMT+0800">
+        <meta property="article:modified_time" content="Wed Jan 24 2018 17:33:44 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="/2018/01/23/2584-AI/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "/2018/01/23/2584-AI/index.html",
+    "headline": "2584-AI",
+    "datePublished": "Tue Jan 23 2018 21:26:29 GMT+0800",
+    "dateModified": "Wed Jan 24 2018 17:33:44 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Sharknevercries",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "勿忘初衷"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Shark&#39;s safe house",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",TCGnull",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言 </span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Player"><span class="post-toc-number">2.</span> <span class="post-toc-text">Player</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Evil"><span class="post-toc-number">3.</span> <span class="post-toc-text">Evil</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#賽規"><span class="post-toc-number">4.</span> <span class="post-toc-text">賽規 </span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#賽末省思"><span class="post-toc-number">5.</span> <span class="post-toc-text">賽末省思 </span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#參考"><span class="post-toc-number">6.</span> <span class="post-toc-text">參考</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                2584-AI
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Sharknevercries</strong>
+        <span>1月 23, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/TCG/">TCG</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=2584-AI&url=/2018/01/23/2584-AI/index.html&pic=/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=2584-AI&url=/2018/01/23/2584-AI/index.html&via=Sharknevercries" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=/2018/01/23/2584-AI/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=/2018/01/23/2584-AI/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="前言"><a href="# 前言" class="headerlink" title="前言"></a>前言 </h1><p> 本篇簡單描述在 106 學年度上學期於交通大學的「電腦對局理論」(TCG)課程的期末競賽最後結果。從一開始 2048 的 heuristic player 開始，利用 TD Learning 學習良好的 Tuple Network 作為估計函數，再來是轉換不一樣且更困難的遊戲環境，最後加入 alpha-beta search 來加速搜尋效率。</p>
+<h1 id="Player"><a href="#Player" class="headerlink" title="Player"></a>Player</h1><p>TupleNetwork 形狀主要採 LeonTuple<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>，根據盤面的空格數動態搜尋深度，最深搜到 7 層。<br>為了提高 TupleNetwork 對於盤面的精準度，我再依據空格數來個別訓練不同個 TupleNetwork，最後我使用 8 個 TupleNetwork；在 random_evil 下，不搜尋的情況 (訓練模式) 可以到均分 57000 左右，10946 的達成率有 0.95%，而 2584 的達成率有 70%。<br>最終版本的名字叫做<strong>maple</strong>。</p>
+<h1 id="Evil"><a href="#Evil" class="headerlink" title="Evil"></a>Evil</h1><p>逕至採用 Player 的 TupleNetowrk。<br>最終版本的名字叫做<strong>cinnamon</strong>。</p>
+<p>除此之外也有用不同方法訓練 evil，像是 evil 每步的 reward 為 -1 來做 TD Learning，為了稍微避免後面盤面練不到的情況，也以從盤面最大 tile 為多少起，開始訓練一個 TupleNetwork，最後練成許多各個情況下的 TupleNetwork，實戰時根據盤面的最大 tile 選擇哪個 TupleNetwork。<br>而此版本的名字叫做<strong>coconut</strong>。</p>
+<h1 id="賽規"><a href="# 賽規" class="headerlink" title="賽規"></a>賽規 </h1><p> 每年比賽的賽制可能不一，這次採兩兩互打，雙方的 player 與 evil 相互較勁，得分者高獲勝。但限制每秒移動次數，不可違規等。</p>
+<p>最後看勝場數多者為勝。</p>
+<h1 id="賽末省思"><a href="# 賽末省思" class="headerlink" title="賽末省思"></a>賽末省思 </h1><p> 最後比賽人數 30 人，得分 23，居於第五。</p>
+<p>經過與他人討論，大致上我覺得在賽場上要強有幾個要點：</p>
+<ol>
+<li>AB 搜尋時所用的 Opponent model 非常重要</li>
+<li>搜尋深度比 TupleNetwork 在 random_evil 的表現還來得重要，因為賽場無 random_evil<ul>
+<li>當 TupleNetwork 愈簡單，也就代表可以搜尋得更深</li>
+</ul>
+</li>
+<li>當對方 evil 誠心誠意讓你的 player 時，注意不要超時</li>
+<li>動態搜尋深度還蠻實用的，尤其是在脫離困境時</li>
+</ol>
+<h1 id="參考"><a href="# 參考" class="headerlink" title="參考"></a>參考</h1><p><a href="https://github.com/Sharknevercries/2584-AI-cpp" target="_blank" rel="noopener">GitHub</a></p>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">實驗室同儕，Leon 所創，在實作 2048 的 TD Learning 時採用此 TupleNetwork 結構，效果卓越，故而也搬運至 2584 嘗試。基本上是 4 個 5-tuple。</span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/03/09/Coroutine-Goroutine/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2016/10/24/2016-推甄心得/" id="post_nav-older" class="next-content">
+            舊篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="Sharknevercries's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        sharknevercries@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                首頁
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    過往
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archive/2018/03/">三月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archive/2018/01/">一月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archive/2016/10/">十月 2016<span class="sidebar_archives-count">1</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/about" title="About">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                About
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/note" title="Note">
+                
+                    <i class="material-icons sidebar-material-icons">note</i>
+                
+                Note
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主題 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/Sharknevercries" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>Shark's safe house
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?wgjW/HuQG9JDgvPDPoRAng==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+        </body>
+    
+</html>

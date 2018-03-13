@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Shark&#39;s safe house</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="/"/>
+  <updated>2018-03-13T11:11:31.012Z</updated>
+  <id>/</id>
+  
+  <author>
+    <name>Sharknevercries</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Coroutine &amp; Goroutine</title>
+    <link href="/2018/03/09/Coroutine-Goroutine/"/>
+    <id>/2018/03/09/Coroutine-Goroutine/</id>
+    <published>2018-03-09T06:58:29.000Z</published>
+    <updated>2018-03-13T11:11:31.012Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="# 前言" class="headerlink" title="前言"></a>前言 </h1><p> 某日，我收到老闆的訊息，請我去研究一下「C10K 之於 Goroutine」的關聯。瞬間我錯愕了一下，然後隔天開始卯起來開始研讀相關的資料、心得與案例。而在此之前我也只是知道有 Go 程式語言存在，也不知道它的強處。</p><p>本文用來記錄我在研讀 Goroutine 過程中看到、聽到並整理一些遇到的一些迷思。也許內文中有些想法是錯的，也歡迎指摘。</p><a id="more"></a><h1 id="Coroutine"><a href="#Coroutine" class="headerlink" title="Coroutine"></a>Coroutine</h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>在介紹 Goroutine 前，必須先介紹什麼是 coroutine，根據維基的說明：</p><blockquote><p>Coroutines are computer-program components that generalize subroutines for non-preemptive multitasking, by allowing multiple entry points for suspending and resuming execution at certain locations.</p><footer><strong>Wikipedia</strong><cite><a href="https://en.wikipedia.org/wiki/Coroutine" target="_blank" rel="noopener">en.wikipedia.org/wiki/Coroutine</a></cite></footer></blockquote><p>當中提到 coroutine 是一般我們常使用的 subroutine 的泛化版，或是說，subroutine 是 coroutine 的特殊狀況。一般我們使用 subroutine 會有如下的行為：</p><ol><li>在某地呼叫 subroutine</li><li>subroutine 從頭到尾執行直到其行為結束</li><li>返回原先呼叫 subroutine 的地方繼續向下執行</li></ol><p>而 coroutine 除了上述的行為外，尚可：</p><ol><li>於特定點中斷，並在未來可以在從此繼續執行</li></ol><p>通常要暫時從特定點中斷使用 <strong>yield</strong> 類的關鍵字，代表讓出執行權的意思；之後當你再次呼叫 coroutine 時，它未必是從頭開始執行。<br>而當你不使用任何<strong>yield</strong>，它就跟一般 subroutine 一樣了。</p><h2 id="Generator"><a href="#Generator" class="headerlink" title="Generator"></a>Generator</h2><p>我在尋找相關 coroutine 的執行範例時，看到一個稱作 Generator 的東西，它算是一種特殊的 coroutine。首先先來看一下它的執行程式碼：</p><img src="/2018/03/09/Coroutine-Goroutine/coroutine-python.jpg" class="Test"><p>首先 foo()內有個 <strong>yield</strong> 關鍵字，代表當執行到此將會讓出執行權並回傳東西，所以整體的執行輸出應當會是：</p><ol><li>數字 (1 ~ 5)</li><li>Main has control</li><li>Go back foo</li><li>Back to 1.</li></ol><p>當然最後會噴錯在<strong>b.<strong>next</strong>()</strong>，不能再 iterate 下去了。</p><p>上面的 generator 的例子可以看到一些與 coroutine 相關的特性：</p><ol><li>在 <strong>yield</strong> 時，除了回傳東西外，也提供了下次再呼叫時的進入點應在何處</li><li>再次呼叫時從中斷點，<strong>yield</strong>處下執行</li></ol><p>於閱讀資料時，有一個困擾我已久的點是：當我呼叫一個 coroutine 後並 yield 後，我要如何知道我下次呼叫的 coroutine 是上一次呼叫的，抑或是一個新的從頭開始的 coroutine？我想在呼叫 coroutine 時，應當有個物件寄存一個 coroutine 的狀態：是否執行結束、上一次中斷點在哪等等的資訊。從上面 <strong>Geneartor</strong> 的例子，<strong>b</strong>就擔當類似的物件；也許程式語言本身內部也幫助隱藏了這類物件的訊息，但仍提供一些公開的方式可以存取，並在再次呼叫時可以傳遞參數，Python 中的 <strong>Geneartor</strong> 就提供了：</p><ul><li><strong>next</strong>()，執行到下個 yield 或是結束為止</li><li>send()，傳遞參數，不可於初次呼叫</li></ul><h2 id="Dive-into-coroutine"><a href="#Dive-into-coroutine" class="headerlink" title="Dive into coroutine"></a>Dive into coroutine</h2><h3 id="Thread"><a href="#Thread" class="headerlink" title="Thread"></a>Thread</h3><p>作業系統 (OS) 中總是常常提及兩者間的差異。一個 process 可以擁有許多的 thread 在執行工作，一個 Thread 就是程式執行的最基本單位。若處理器只有單核心(single core)，那麼即使你有千百萬個 Threads，你也只能看到同時間只有一個 Thread 在執行；而當執行某個 thread 遇到被阻塞或是其他情形需要讓出執行權(這是 OS 排程決定的)，OS 將會進行<strong>Thread Context Switching</strong>，換另一個 Thread 上來執行，有效利用 CPU 資源而不導致閒置。</p><h3 id="Coroutine-1"><a href="#Coroutine-1" class="headerlink" title="Coroutine"></a>Coroutine</h3><p>由於 coroutine 再被呼叫時，仍像個一般函式，所以執行時仍然在同個 thread 下，只是切換到 coroutine 段繼續執行程式碼。而且所有 coroutine 在哪處被呼叫或是 <strong>yield</strong> 皆為程式設計人員掌控的。</p><p>所以當一個程式有所謂很多的 coroutine 在執行，並且由一個控制台物件來控制哪個 coroutine 應該執行；而當目前執行的 coroutine 被阻塞 (block) 的話，也可以主動讓出執行權，交還控制台選擇可以執行的 coroutine 並執行下去。</p><h3 id="Thread-vs-Coroutine"><a href="#Thread-vs-Coroutine" class="headerlink" title="Thread vs Coroutine"></a>Thread vs Coroutine</h3><p>綜合上面，coroutine 排程是由程式設計人員或是程式語言來決定的，而 thread 排程是由 OS 決定；coroutine 在做 switch 時，只需做少少的事(返回呼叫點，stack 上的本地變數清乾淨之類的)，而 thread 卻要載入整個更多的東西，故而代價較高。</p><p>就某個角度來說，coroutine 就像個輕量級的 thread，除了需要的資源 (stack) 較少外，context switching 時間也短。</p><h1 id="Goroutine"><a href="#Goroutine" class="headerlink" title="Goroutine"></a>Goroutine</h1><h2 id="Why-goroutines-instead-of-threads"><a href="#Why-goroutines-instead-of-threads" class="headerlink" title="Why goroutines instead of threads?"></a>Why goroutines instead of threads?</h2><p>根據上面的討論並引用 Golang 官方的描述可以讓我們對 goroutine 有更進一步了解：</p><blockquote><p>Goroutines are part of <strong>making concurrency easy to use</strong>. The idea, which has been around for a while, is to <strong>multiplex independently executing functions—coroutines—onto a set of threads</strong>. <strong>When a coroutine blocks, such as by calling a blocking system call, the run-time automatically moves other coroutines on the same operating system thread to a different, runnable thread so they won’t be blocked</strong>. The programmer sees none of this, which is the point. The result, which we call goroutines, can be very cheap: they have little overhead beyond the memory for the stack, which is just a few kilobytes.<br>To make the stacks small, Go’s run-time uses resizable, bounded stacks. A newly minted goroutine is given a few kilobytes, which is almost always enough. When it isn’t, the run-time grows (and shrinks) the memory for storing the stack automatically, allowing many goroutines to live in a modest amount of memory. The CPU overhead averages about three cheap instructions per function call. It is practical to create hundreds of thousands of goroutines in the same address space. If goroutines were just threads, system resources would run out at a much smaller number. </p><footer><strong>GolangFAQ</strong><cite><a href="https://golang.org/doc/faq#goroutines" target="_blank" rel="noopener">golang.org/doc/faq#goroutines</a></cite></footer></blockquote><h2 id="Go-Scheduler"><a href="#Go-Scheduler" class="headerlink" title="Go Scheduler"></a>Go Scheduler</h2><p>因為一個 go 關鍵字就可以做到 concurrent 式的執行許多任務，背後的調配執行也是令人好奇的。</p><p><a href="https://povilasv.me/go-scheduler/" target="_blank" rel="noopener">Go Scheduler: Ms, Ps &amp; Gs</a><br><a href="https://tonybai.com/2017/06/23/an-intro-about-goroutine-scheduler/" target="_blank" rel="noopener">也谈 goroutine 调度器</a></p><h1 id="結論"><a href="# 結論" class="headerlink" title="結論"></a>結論 </h1><p> 藉由這個 coroutine 話題又讓我再次重拾一些底層的概念，並且也把一些常見的關鍵字有了更多的理解與體悟。</p><p>至於 Golang，除了 goroutine 外，該程式語言中關於阻塞的操作也有一些關鍵字可以運用，如：select、channel 等，它們直觀好用並且隱藏了諸多細節，大大的便利程式設計人員。</p><h1 id="參考資料"><a href="# 參考資料" class="headerlink" title="參考資料"></a>參考資料</h1><p><a href="https://en.wikipedia.org/wiki/Coroutine" target="_blank" rel="noopener">Wikipedia - Coroutine</a><br><a href="http://blog.ez2learn.com/2010/07/17/talk-about-coroutine-and-gevent/" target="_blank" rel="noopener">Python geneator &amp; coroutine</a><br><a href="https://stackoverflow.com/questions/2776829/difference-between-pythons-generators-and-iterators" target="_blank" rel="noopener">Generator &amp; iterator</a><br><a href="https://stackoverflow.com/questions/1050222/concurrency-vs-parallelism-what-is-the-difference" target="_blank" rel="noopener">Concurrency vs parallelism</a><br><a href="https://stackoverflow.com/questions/1934715/difference-between-a-coroutine-and-a-thread" target="_blank" rel="noopener">Diff in coroutine &amp; thread</a><br><a href="https://golang.org/doc/" target="_blank" rel="noopener">Golang official site</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;某日，我收到老闆的訊息，請我去研究一下「C10K之於Goroutine」的關聯。瞬間我錯愕了一下，然後隔天開始卯起來開始研讀相關的資料、心得與案例。而在此之前我也只是知道有Go程式語言存在，也不知道它的強處。&lt;/p&gt;
+&lt;p&gt;本文用來記錄我在研讀Goroutine過程中看到、聽到並整理一些遇到的一些迷思。也許內文中有些想法是錯的，也歡迎指摘。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="NCTU" scheme="/categories/NCTU/"/>
+    
+    
+      <category term="Network Programming" scheme="/tags/Network-Programming/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2584-AI</title>
+    <link href="/2018/01/23/2584-AI/"/>
+    <id>/2018/01/23/2584-AI/</id>
+    <published>2018-01-23T13:26:29.000Z</published>
+    <updated>2018-01-24T09:33:44.051Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="# 前言" class="headerlink" title="前言"></a>前言 </h1><p> 本篇簡單描述在 106 學年度上學期於交通大學的「電腦對局理論」(TCG)課程的期末競賽最後結果。從一開始 2048 的 heuristic player 開始，利用 TD Learning 學習良好的 Tuple Network 作為估計函數，再來是轉換不一樣且更困難的遊戲環境，最後加入 alpha-beta search 來加速搜尋效率。</p><h1 id="Player"><a href="#Player" class="headerlink" title="Player"></a>Player</h1><p>TupleNetwork 形狀主要採 LeonTuple<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup>，根據盤面的空格數動態搜尋深度，最深搜到 7 層。<br>為了提高 TupleNetwork 對於盤面的精準度，我再依據空格數來個別訓練不同個 TupleNetwork，最後我使用 8 個 TupleNetwork；在 random_evil 下，不搜尋的情況 (訓練模式) 可以到均分 57000 左右，10946 的達成率有 0.95%，而 2584 的達成率有 70%。<br>最終版本的名字叫做<strong>maple</strong>。</p><h1 id="Evil"><a href="#Evil" class="headerlink" title="Evil"></a>Evil</h1><p>逕至採用 Player 的 TupleNetowrk。<br>最終版本的名字叫做<strong>cinnamon</strong>。</p><p>除此之外也有用不同方法訓練 evil，像是 evil 每步的 reward 為 -1 來做 TD Learning，為了稍微避免後面盤面練不到的情況，也以從盤面最大 tile 為多少起，開始訓練一個 TupleNetwork，最後練成許多各個情況下的 TupleNetwork，實戰時根據盤面的最大 tile 選擇哪個 TupleNetwork。<br>而此版本的名字叫做<strong>coconut</strong>。</p><h1 id="賽規"><a href="# 賽規" class="headerlink" title="賽規"></a>賽規 </h1><p> 每年比賽的賽制可能不一，這次採兩兩互打，雙方的 player 與 evil 相互較勁，得分者高獲勝。但限制每秒移動次數，不可違規等。</p><p>最後看勝場數多者為勝。</p><h1 id="賽末省思"><a href="# 賽末省思" class="headerlink" title="賽末省思"></a>賽末省思 </h1><p> 最後比賽人數 30 人，得分 23，居於第五。</p><p>經過與他人討論，大致上我覺得在賽場上要強有幾個要點：</p><ol><li>AB 搜尋時所用的 Opponent model 非常重要</li><li>搜尋深度比 TupleNetwork 在 random_evil 的表現還來得重要，因為賽場無 random_evil<ul><li>當 TupleNetwork 愈簡單，也就代表可以搜尋得更深</li></ul></li><li>當對方 evil 誠心誠意讓你的 player 時，注意不要超時</li><li>動態搜尋深度還蠻實用的，尤其是在脫離困境時</li></ol><h1 id="參考"><a href="# 參考" class="headerlink" title="參考"></a>參考</h1><p><a href="https://github.com/Sharknevercries/2584-AI-cpp" target="_blank" rel="noopener">GitHub</a></p><div id="footnotes"><hr><div id="footnotelist"><ol style="list-style:none; padding-left: 0;"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px;">1.</span><span style="display: inline-block; vertical-align: top;">實驗室同儕，Leon 所創，在實作 2048 的 TD Learning 時採用此 TupleNetwork 結構，效果卓越，故而也搬運至 2584 嘗試。基本上是 4 個 5-tuple。</span><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;# 前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言 &lt;/h1&gt;&lt;p&gt; 本篇簡單描述在 106 學年度上學期於交通大學的「電腦對局理論」(TCG)課程的期末競賽最後結果。從一開始 2048 的 heuris
+      
+    
+    </summary>
+    
+      <category term="NCTU" scheme="/categories/NCTU/"/>
+    
+    
+      <category term="TCG" scheme="/tags/TCG/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2016 資工、資科推甄心得</title>
+    <link href="/2016/10/24/2016-%E6%8E%A8%E7%94%84%E5%BF%83%E5%BE%97/"/>
+    <id>/2016/10/24/2016-推甄心得/</id>
+    <published>2016-10-24T07:17:29.000Z</published>
+    <updated>2018-01-23T13:26:19.405Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="# 前言" class="headerlink" title="前言"></a>前言 </h1><p> 又到了一年一度的推甄時節，小弟我也因為不想準備考試而踏上推甄旅途。所幸小弟在校 (中央大學) 成績尚可，一共報了六所：</p><ul><li>台大資工</li><li>台大資料科學學位學程碩士班</li><li>交大資工聯招(甲組)</li><li>交大數據科學與工程研究所</li><li>清大資工</li><li>中央資工(保底)</li></ul><p>雖然小弟有許多競賽經歷並在學校計中工作，累積大量實作經歷，但是卻沒報相關實作組，像是：交大資工丁戊組、中央軟工等，這是因為他們的名額都極少數(雖然報的人應該也少，但是實力也一定不會差)，而且有些限定論文方向，所以就沒報名了。</p><p>本篇包含準備推甄事物、面試的心得。</p><a id="more"></a><h1 id="事前準備"><a href="# 事前準備" class="headerlink" title="事前準備"></a>事前準備</h1><ol><li>自傳一頁。包含：<ul><li>簡短家中背景</li><li><strong>人格特質</strong></li><li>求學經歷<ul><li>自小的啟發</li><li>高中參與競賽</li><li><strong>大學參與競賽、學校計中工讀、專題等</strong></li></ul></li><li><strong>未來領域期許</strong></li></ul></li><li>學業成績。包含：<ul><li>歷年成績單<ul><li>平均 86.5</li></ul></li><li>前三年累計排名<ul><li>班排：8/61</li><li>系排：15/126</li></ul></li></ul></li><li>讀書計畫一頁：<ul><li>報考動機</li><li>學習計畫(前中長)</li><li>未來展望</li></ul></li><li>推薦信兩封<ul><li>計中主管</li><li>專題教授</li><li>專科教授</li></ul></li><li>其他備審(共十二頁)<ul><li>在校經手專案一覽與心得(共四頁)</li><li>其他競賽獎狀證明(共七頁)</li></ul></li></ol><p>因為都報類似系所，所以自傳、推薦信、讀書計畫一式丟多所，因為我不論上不上資工或資科，對我而言方向就是「數據科學」，所以就沒多做修改。</p><p>推薦信建議早些拿到，不然有時要找教授是一件困難的事；不過蠻多學校是採線上回填制度，所以就不太麻煩，事先跟教授溝通好即可。我請教授們或上司主管寫推薦信的流程是：</p><ol><li>先寫信 (當面) 詢問寫推薦信的意願</li><li>告知自己要推甄的系所與一些系所的注意事項(線上回填或書面)</li><li>約時間拿推薦信(在此之前附上個人資訊)</li></ol><h1 id="台大資工"><a href="# 台大資工" class="headerlink" title="台大資工"></a>台大資工 </h1><p> 純書面，跟教授拿推薦信而拖到截止最後一天寄限時掛號…。報名人數：362 人，招生名額：74 人。</p><h3 id="放榜結果"><a href="# 放榜結果" class="headerlink" title="放榜結果"></a>放榜結果 </h3><p><strong> 榜上無名</strong>。</p><h1 id="台大資料科學學位學程碩士班"><a href="# 台大資料科學學位學程碩士班" class="headerlink" title="台大資料科學學位學程碩士班"></a>台大資料科學學位學程碩士班 </h1><p> 純書面。跟教授拿推薦信而拖到截止最後一天寄限時掛號…。報名人數：92 人，招生名額：11 人。</p><h3 id="口試"><a href="# 口試" class="headerlink" title="口試"></a>口試 </h3><p> 口試時間：2016/11/1，9:20AM 報到，9:36AM 正式上場。<br>口試地點在博理館七樓，因為不熟台大的系館位置，我是先搭到了捷運公館站然後步行到博理館，真的是有夠遠的…，回去的時候倒是查了最近的捷運站應該是捷運台電大樓站，可以少走五分鐘的路程吧。</p><p>上到七樓報到，發現休息室內已經坐了五分滿，每個人都好帥好美！</p><p>口試是一人一人進去，限時六分，自由簡報時間不得超過四分鐘。口試場地鰻小的，室內擺放一個馬桶蓋形狀的桌子，教授們 (口試委員) 圍著桌子坐，少說也有七、八個…，第一次看到這麼多教授 (口試委員) 齊聚一堂，我超級緊張，話有些支支吾吾，勉強點出自身的程式競賽經歷、校計中的工讀經驗、專題是做啥的還有自己開發的 App，就早早放棄進入問答時間了。</p><p>口試委員一共提問了：</p><ol><li>你自己寫的 App 是？</li><li>競賽經歷 (NCPC、ICPC) 有得名嗎？(只有 NCPC 有佳作啊~~~)</li><li>你的競賽經歷中沒有跟數據分析相關的…，你的經歷也以資工本科相關，這樣的你怎麼會想念本學程？</li></ol><p>印象中不只這幾個問題，我自己還有回答到現在的修課狀況和未來的自修方向。QA 也算是把所有想拱出來的都說出來了，但我覺得有些問題應該有屬於我的回應方式；只是最一開始被場內的氣氛鎮壓真的令我很不舒服，作為人生第一次升學面試算是「失敗」收場吧，繳了五百的學費，短短六分鐘卻覺得有十分長。</p><h3 id="放榜結果 -1"><a href="# 放榜結果 -1" class="headerlink" title="放榜結果"></a>放榜結果 </h3><p><strong> 備 17</strong>。</p><h1 id="交大資工聯招 - 甲組"><a href="# 交大資工聯招 - 甲組" class="headerlink" title="交大資工聯招 (甲組)"></a> 交大資工聯招 (甲組)</h1><p> 線上與書面並行。報名人數：504 人，資訊科學與工程研究所甲組招生名額：56 人；多媒體工程研究所招生名額：27 名；網路工程研究所招生名額：28 名。</p><h3 id="放榜結果 -2"><a href="# 放榜結果 -2" class="headerlink" title="放榜結果"></a>放榜結果 </h3><p> 資訊科學與工程研究所：<strong>備 16</strong>。<br>多媒體工程研究所：<strong>正取</strong>。</p><h1 id="交大數據科學與工程研究所"><a href="# 交大數據科學與工程研究所" class="headerlink" title="交大數據科學與工程研究所"></a>交大數據科學與工程研究所 </h1><p> 線上與書面並行。報名人數：202 人，招生名額：15 人。</p><h3 id="放榜結果 -3"><a href="# 放榜結果 -3" class="headerlink" title="放榜結果"></a>放榜結果 </h3><p><strong> 備 17</strong>。</p><h1 id="清大資工"><a href="# 清大資工" class="headerlink" title="清大資工"></a>清大資工 </h1><p> 線上與書面並行。報名人數：345 人，招生名額：84 人。</p><h3 id="口試 -1"><a href="# 口試 -1" class="headerlink" title="口試"></a>口試 </h3><p> 口試共六分鐘，包含自我介紹最多三分鐘。本次口試需要準備五至十張投影片並影印三份供口試委員們觀看。</p><p>再輪到我前待在考生休息室休息，會有工讀生從休息室叫你出來，並在口試考場外候等。</p><p>輪到我時，工讀生先進去考場將我的簡報打開後才示意門外的我可以進去了。我隨著工讀生出來時進入考場(我或許應該從等工讀生出來後再敲門入場…)，一進去考場，考場是一個狹長型會議桌，口試委員們坐在遠離進門側，簡報的電腦在口試委員的對側；進場後我就馬上走向教授並把簡報影印的份派給他們，然後走回電腦處開始自我介紹。</p><p>我自我介紹了兩分半後，提及個人 Github、競賽、工讀經歷、專題內容和個人作品，就換教授們提問。</p><p>教授們似乎只在意專題，只問了專題的細節與是否得獎的問題，並沒有圍繞其他項目詢問，所以我 <strong> 短短四分鐘就被轟出來了</strong>(場內鴉雀無聲，教授們點頭示意我可以離開)…</p><p>問答過程中，我自認一些對於專題的回答或許可以更加深入而不是用「處理」之類的字眼帶過，而應該拋出一些專有技術詞彙作為輔助，不然講的好像沒有什麼技術成分，雖然程式都在 Github 上了。</p><p>然後鑒於上次台大資科的經驗，覺得教授們根本不會多看你的備審(之前曾經的書面備審)，所以這次特別提及了 Github 的部分與重新闡述所有個人重點。跟上次比起來，比較不緊張了，我的緊張程度與口試委員們距離的平方成反比、並與數量成正比。這次經驗對我而言是一個「初步成功」的口試。</p><h3 id="放榜結果 -4"><a href="# 放榜結果 -4" class="headerlink" title="放榜結果"></a>放榜結果 </h3><p><strong> 備 59</strong>。</p><h1 id="中央資工 - 保底"><a href="# 中央資工 - 保底" class="headerlink" title="中央資工 (保底)"></a> 中央資工 (保底)</h1><p> 招生名額：76 人。</p><h3 id="口試 -2"><a href="# 口試 -2" class="headerlink" title="口試"></a>口試 </h3><p> 無。</p><h3 id="放榜結果 -5"><a href="# 放榜結果 -5" class="headerlink" title="放榜結果"></a>放榜結果 </h3><p> 無須口試 <strong> 逕行錄取</strong>。</p><h1 id="結語"><a href="# 結語" class="headerlink" title="結語"></a>結語 </h1><p> 歷經三年的大學生活，在學期間勵精圖治(？)，積極接觸許多面向，也早早發現自己對於硬體、虛擬化技術、作業系統、資訊安全等沒有興趣，反而對於數字、資料分析與其應用等有著期望。推甄結束後，大學生活還有七個月，剩下的時間也必須持續補足相關知識，以期立於不敗之地。</p><h3 id="最後更新於 2016-11-16"><a href="# 最後更新於 2016-11-16" class="headerlink" title="最後更新於 2016/11/16"></a>最後更新於 2016/11/16</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;又到了一年一度的推甄時節，小弟我也因為不想準備考試而踏上推甄旅途。所幸小弟在校(中央大學)成績尚可，一共報了六所：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;台大資工&lt;/li&gt;
+&lt;li&gt;台大資料科學學位學程碩士班&lt;/li&gt;
+&lt;li&gt;交大資工聯招(甲組)&lt;/li&gt;
+&lt;li&gt;交大數據科學與工程研究所&lt;/li&gt;
+&lt;li&gt;清大資工&lt;/li&gt;
+&lt;li&gt;中央資工(保底)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;雖然小弟有許多競賽經歷並在學校計中工作，累積大量實作經歷，但是卻沒報相關實作組，像是：交大資工丁戊組、中央軟工等，這是因為他們的名額都極少數(雖然報的人應該也少，但是實力也一定不會差)，而且有些限定論文方向，所以就沒報名了。&lt;/p&gt;
+&lt;p&gt;本篇包含準備推甄事物、面試的心得。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="推甄" scheme="/tags/%E6%8E%A8%E7%94%84/"/>
+    
+  </entry>
+  
+</feed>
