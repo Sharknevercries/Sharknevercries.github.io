@@ -241,7 +241,7 @@
 
     
         <meta property="article:published_time" content="Fri Mar 09 2018 14:58:29 GMT+0800">
-        <meta property="article:modified_time" content="Tue Mar 13 2018 19:11:31 GMT+0800">
+        <meta property="article:modified_time" content="Wed Mar 14 2018 13:13:32 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -264,7 +264,7 @@
     "mainEntityOfPage": "/2018/03/09/Coroutine-Goroutine/index.html",
     "headline": "Coroutine & Goroutine",
     "datePublished": "Fri Mar 09 2018 14:58:29 GMT+0800",
-    "dateModified": "Tue Mar 13 2018 19:11:31 GMT+0800",
+    "dateModified": "Wed Mar 14 2018 13:13:32 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Sharknevercries",
@@ -539,10 +539,10 @@
 <blockquote><p>Goroutines are part of <strong>making concurrency easy to use</strong>. The idea, which has been around for a while, is to <strong>multiplex independently executing functions—coroutines—onto a set of threads</strong>. <strong>When a coroutine blocks, such as by calling a blocking system call, the run-time automatically moves other coroutines on the same operating system thread to a different, runnable thread so they won’t be blocked</strong>. The programmer sees none of this, which is the point. The result, which we call goroutines, can be very cheap: they have little overhead beyond the memory for the stack, which is just a few kilobytes.<br>To make the stacks small, Go’s run-time uses resizable, bounded stacks. A newly minted goroutine is given a few kilobytes, which is almost always enough. When it isn’t, the run-time grows (and shrinks) the memory for storing the stack automatically, allowing many goroutines to live in a modest amount of memory. The CPU overhead averages about three cheap instructions per function call. It is practical to create hundreds of thousands of goroutines in the same address space. If goroutines were just threads, system resources would run out at a much smaller number. </p>
 <footer><strong>GolangFAQ</strong><cite><a href="https://golang.org/doc/faq#goroutines" target="_blank" rel="noopener">golang.org/doc/faq#goroutines</a></cite></footer></blockquote>
 <h2 id="Go-Scheduler"><a href="#Go-Scheduler" class="headerlink" title="Go Scheduler"></a>Go Scheduler</h2><p>因為一個 go 關鍵字就可以做到 concurrent 式的執行許多任務，背後的調配執行也是令人好奇的。</p>
-<p><a href="https://povilasv.me/go-scheduler/" target="_blank" rel="noopener">Go Scheduler: Ms, Ps &amp; Gs</a><br><a href="https://tonybai.com/2017/06/23/an-intro-about-goroutine-scheduler/" target="_blank" rel="noopener">也谈 goroutine 调度器</a></p>
+<p><a href="https://morsmachine.dk/go-scheduler" target="_blank" rel="noopener">Go Scheduler: Ms, Ps &amp; Gs</a><br><a href="https://www.ardanlabs.com/blog/2015/02/scheduler-tracing-in-go.html" target="_blank" rel="noopener">Go Schuduler tracing</a><br><a href="https://tonybai.com/2017/06/23/an-intro-about-goroutine-scheduler/" target="_blank" rel="noopener">也谈 goroutine 调度器</a></p>
 <h1 id="結論"><a href="# 結論" class="headerlink" title="結論"></a>結論 </h1><p> 藉由這個 coroutine 話題又讓我再次重拾一些底層的概念，並且也把一些常見的關鍵字有了更多的理解與體悟。</p>
 <p>至於 Golang，除了 goroutine 外，該程式語言中關於阻塞的操作也有一些關鍵字可以運用，如：select、channel 等，它們直觀好用並且隱藏了諸多細節，大大的便利程式設計人員。</p>
-<h1 id="參考資料"><a href="# 參考資料" class="headerlink" title="參考資料"></a>參考資料</h1><p><a href="https://en.wikipedia.org/wiki/Coroutine" target="_blank" rel="noopener">Wikipedia - Coroutine</a><br><a href="http://blog.ez2learn.com/2010/07/17/talk-about-coroutine-and-gevent/" target="_blank" rel="noopener">Python geneator &amp; coroutine</a><br><a href="https://stackoverflow.com/questions/2776829/difference-between-pythons-generators-and-iterators" target="_blank" rel="noopener">Generator &amp; iterator</a><br><a href="https://stackoverflow.com/questions/1050222/concurrency-vs-parallelism-what-is-the-difference" target="_blank" rel="noopener">Concurrency vs parallelism</a><br><a href="https://stackoverflow.com/questions/1934715/difference-between-a-coroutine-and-a-thread" target="_blank" rel="noopener">Diff in coroutine &amp; thread</a><br><a href="https://golang.org/doc/" target="_blank" rel="noopener">Golang official site</a></p>
+<h1 id="參考資料"><a href="# 參考資料" class="headerlink" title="參考資料"></a>參考資料</h1><p><a href="https://en.wikipedia.org/wiki/Coroutine" target="_blank" rel="noopener">Wikipedia - Coroutine</a><br><a href="http://blog.ez2learn.com/2010/07/17/talk-about-coroutine-and-gevent/" target="_blank" rel="noopener">Python geneator &amp; coroutine</a><br><a href="https://stackoverflow.com/questions/2776829/difference-between-pythons-generators-and-iterators" target="_blank" rel="noopener">Generator &amp; iterator</a><br><a href="https://stackoverflow.com/questions/1050222/concurrency-vs-parallelism-what-is-the-difference" target="_blank" rel="noopener">Concurrency vs parallelism</a><br><a href="https://stackoverflow.com/questions/1934715/difference-between-a-coroutine-and-a-thread" target="_blank" rel="noopener">Diff in coroutine &amp; thread</a><br><a href="https://www.ardanlabs.com/blog/2014/01/concurrency-goroutines-and-gomaxprocs.html" target="_blank" rel="noopener">Concurrency, goroutines, gomaxprocs</a><br><a href="https://golang.org/doc/" target="_blank" rel="noopener">Golang official site</a></p>
 
         
     
